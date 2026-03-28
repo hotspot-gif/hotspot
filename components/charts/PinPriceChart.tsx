@@ -5,7 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 interface Props { performance: RetailerPerformance[] }
 
 export default function PinPriceChart({ performance }: Props) {
-  const yearly = [...new Set(performance.map(p => p.year))].sort().map(yr => {
+  const yearly = Array.from(new Set(performance.map(p => p.year))).sort().map(yr => {
     const yp = performance.filter(p => p.year === yr)
     return {
       year: yr.toString(),

@@ -30,7 +30,7 @@ export default function RetailerReport({ retailer, performance }: Props) {
   const { user } = useAuth()
   const reportRef = useRef<HTMLDivElement>(null)
 
-  const years = [...new Set(performance.map(p => p.year))].sort()
+  const years = Array.from(new Set(performance.map(p => p.year))).sort()
 
   const handleExportPDF = async () => {
     try {

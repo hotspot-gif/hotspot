@@ -25,7 +25,7 @@ export async function getZonesByBranch(branches: Branch[]) {
     .select('zone')
     .in('branch', branches)
   if (error) throw error
-  const zones = [...new Set((data || []).map((r: any) => r.zone).filter(Boolean))]
+  const zones = Array.from(new Set((data || []).map((r: any) => r.zone).filter(Boolean)))
   return zones.sort()
 }
 
