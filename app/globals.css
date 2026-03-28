@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #21264e;
+  --background: #fff7f2;
+  --accent: #245bc1;
+  --green: #08dc7d;
+  --peach: #ffc8b2;
+  --yellow: #ffd54f;
+  --cyan: #00d7ff;
+  --purple: #46286e;
+  --red: #f04438;
+  --blue: #006ae0;
+  --font-outfit: 'Outfit', sans-serif;
+  --font-fraunces: 'Fraunces', serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-outfit), sans-serif;
+  background-color: var(--background);
+  color: var(--primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f0ede8; }
+::-webkit-scrollbar-thumb { background: #c5c0d4; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #21264e; }
+
+/* Custom utilities */
+.card {
+  @apply bg-white rounded-2xl shadow-sm border border-gray-100 p-6;
+}
+
+.kpi-card {
+  @apply bg-white rounded-2xl shadow-sm border border-gray-100 p-5;
+}
+
+.btn-primary {
+  @apply bg-[#21264e] text-white font-semibold px-5 py-2.5 rounded-xl hover:bg-[#2e3566] transition-all duration-200;
+}
+
+.btn-secondary {
+  @apply bg-[#fff7f2] text-[#21264e] font-semibold px-5 py-2.5 rounded-xl border border-[#21264e]/20 hover:border-[#21264e]/50 transition-all duration-200;
+}
+
+.input-field {
+  @apply w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-[#21264e] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#006ae0]/30 focus:border-[#006ae0] transition-all duration-200;
+}
+
+.select-field {
+  @apply w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-[#21264e] focus:outline-none focus:ring-2 focus:ring-[#006ae0]/30 focus:border-[#006ae0] transition-all duration-200 appearance-none cursor-pointer;
+}
+
+.label {
+  @apply text-sm font-medium text-[#21264e]/70 mb-1 block;
+}
+
+.section-title {
+  @apply text-lg font-semibold text-[#21264e] mb-1;
+}
+
+.section-subtitle {
+  @apply text-sm text-[#21264e]/50;
+}
+
+/* Table */
+.data-table {
+  @apply w-full text-sm;
+}
+
+.data-table th {
+  @apply bg-[#21264e] text-white font-semibold px-4 py-3 text-left;
+}
+
+.data-table td {
+  @apply px-4 py-3 border-b border-gray-100 text-[#21264e];
+}
+
+.data-table tr:hover td {
+  @apply bg-[#fff7f2];
+}
+
+/* Loading spinner */
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #21264e;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: fadeIn 0.3s ease forwards; }
+
+/* Badge */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+}
+
+.badge-admin { @apply bg-[#21264e] text-white; }
+.badge-rsm { @apply bg-[#006ae0]/10 text-[#006ae0]; }
+.badge-asm { @apply bg-[#08dc7d]/20 text-[#0a9e5c]; }
